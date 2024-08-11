@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <%- include('partials/navbar') %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h1>Welcome, <%= user.name %></h1>
+            <a href="/profile/add-car" class="btn btn-primary">Add New Car</a>
+            <h2>Your Cars</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Image</th>
+                    <th>Link</th>
+                    <th>Video</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% cars.forEach(car => { %>
+                    <tr>
+                        <td><%= car.c_title %></td>
+                        <td><img src="/images/<%= car.c_image_path.split('/').pop() %>" alt="Car Image" width="100"></td>
+                        <td><a href="https://<%= car.c_link %>" target="_blank">Link</a></td>
+                        <td><%= car.c_video %></td>
+                        <td>
+                            <a href="/profile/edit-car/<%= car.c_id %>" class="btn btn-warning">Edit</a>
+                            <form action="/profile/delete-car/<%= car.c_id %>" method="POST" style="display:inline;">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <%- include('partials/footer') %>
+        </div>
+    </div>
+</div>
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/script.js"></script>
+<script src="https://kit.fontawesome.com/64fef8e769.js" crossorigin="anonymous"></script>
+</body>
+</html>

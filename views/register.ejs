@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <%- include('partials/navbar') %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h1>register page</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-4 offset-md-4">
+            <form action="/register" method="POST" id="registerForm">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                    <label id="usernameError" class="text-danger error-class"></label>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                    <label id="emailError" class="text-danger error-class"></label>
+                </div>
+                <div class="form-group">
+                    <label for="name">First Name:</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                    <label id="nameError" class="text-danger error-class"></label>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name">
+                    <label id="lastNameError" class="text-danger error-class"></label>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                    <label id="passwordError" class="text-danger error-class"></label>
+                </div>
+                <button type="submit" class="btn btn-primary" id="sendRegister">Register</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <%- include('partials/footer') %>
+        </div>
+    </div>
+</div>
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/script.js"></script>
+<script src="https://kit.fontawesome.com/64fef8e769.js" crossorigin="anonymous"></script>
+</body>
+</html>
